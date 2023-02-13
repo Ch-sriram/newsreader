@@ -20,6 +20,8 @@ const fetchRecentPosts = async () => {
   }
 }
 
+const getDateString = (dateString: string) => new Date(dateString).toLocaleDateString('en-us', { year: 'numeric', month: 'short', day: 'numeric' });
+
 const App = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [sortedData, setSortedData] = React.useState<Array<any>>();
@@ -66,7 +68,7 @@ const App = () => {
                 heading={post.title.rendered}
                 link={post.link}
                 summary={post.excerpt.rendered}
-                dateDetails={(new Date(post.date)).toLocaleString()}
+                dateDetails={getDateString(post.date)}
                 author={post.parselyMeta['parsely-author'][0]}
                 imageLink={post.parselyMeta['parsely-image-url']}
               />

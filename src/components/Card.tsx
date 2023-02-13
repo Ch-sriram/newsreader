@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {
   Box,
   Card as ChakraCard,
@@ -30,7 +29,13 @@ const Card = (props: CardProps) => {
           <Heading size="md">
             <span dangerouslySetInnerHTML={{__html: props.heading}}></span>
           </Heading>
-          <Image src={props.imageLink} alt={props.imageLink} width={'100%'} />
+          <Image
+            src={props.imageLink}
+            alt={props.imageLink}
+            width={'100%'}
+            border={'1px'}
+            style={{ marginTop: '10px' }}
+          />
         </Link>
       </CardHeader>
 
@@ -50,13 +55,12 @@ const Card = (props: CardProps) => {
             </Heading>
             <Text pt="2" fontSize="sm">
               <strong style={{ color: 'grey' }}>Author</strong>: {props.author}
-              
             </Text>
           </Box>
         </Stack>
       </CardBody>
-      <CardFooter textAlign={'end'}>
-        <Text size="xs" alignItems={'flex-end'}>
+      <CardFooter>
+        <Text size="xs" textColor="gray">
           {props.dateDetails}
         </Text>
       </CardFooter>
